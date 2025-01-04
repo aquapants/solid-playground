@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  --navbar-height: 42px; /* navbar height definition ! must match height:nav in tailwind.config.js */
+  --min-height-w-nav: calc(
+    100vh - var(--navbar-height)
+  ); /* section height definition when nav is on screen */
+}
+
+@layer utilities {
+  /* custom class for getting the full viewHeight-NavBarHeight*/
+  .section-min-height {
+    min-height: var(--min-height-w-nav);
+  }
+}

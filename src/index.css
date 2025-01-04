@@ -20,6 +20,13 @@
   ); /* section height definition when nav is on screen */
 }
 
+@layer base {
+  /* default generic non 3D button style applied across entire project */
+  button { 
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded text-base;
+  }
+}
+
 @layer utilities {
   /* custom class for getting the full viewHeight-NavBarHeight*/
   .section-min-height {

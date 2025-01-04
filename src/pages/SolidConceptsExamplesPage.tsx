@@ -5,7 +5,7 @@ import BasicFormExample from '@components/BasicFormExample'
 const SolidConceptsExamplesPage = () => {
 
   return ( 
-    <div class="items-center justify-center section-min-height grid grid-cols-2">
+    <div class="items-center justify-between section-min-height grid grid-cols-2">
       <SimpleSignalsEaxmple />
       <EventHandlersExample />
       <BasicFormExample />

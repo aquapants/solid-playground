@@ -13,21 +13,19 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+
   /* navbar height definition ! must match height:nav in tailwind.config.js */
-  --navbar-height: 42px; 
+  --navbar-height: 42px;
 
   /* height definition of the screen minus the nav bar height (useful for heroSections, etc. */
   /* this is just a css variable used in a calculation of a custom tailwind class, see .section-min-height */
-  --min-height-w-nav: calc(
-    100vh - var(--navbar-height)
-  ); 
+  --min-height-w-nav: calc(100vh - var(--navbar-height));
 }
 
 @layer base {
   /* default generic non 3D button style applied across entire project */
-  button { 
-    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded text-base;
+  button {
+    @apply rounded bg-blue-500 px-4 py-2 text-base font-bold text-white;
   }
 }
 

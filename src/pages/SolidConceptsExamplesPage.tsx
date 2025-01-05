@@ -1,9 +1,9 @@
-import SimpleSignalsEaxmple from '@components/SimpleSignalsExample'
-import BasicFormExample from '@components/BasicFormExample'
-import EventHandlersExample from '@components/EventHandlersExample'
-import SimpleStoresExample from '@components/SimpleStoresExample'
-import DataFetchingExample from '@components/DataFetchingExample'
-import CodeSnippet from '@components/CodeSnippet'
+import SimpleSignalsEaxmple from '@components/SimpleSignalsExample';
+import BasicFormExample from '@components/BasicFormExample';
+import EventHandlersExample from '@components/EventHandlersExample';
+import SimpleStoresExample from '@components/SimpleStoresExample';
+import DataFetchingExample from '@components/DataFetchingExample';
+import CodeSnippet from '@components/CodeSnippet';
 
 // TODO: move this content out of component and tutorialize the rest of the examples on individual pages
 const codeExample = `
@@ -48,31 +48,36 @@ const DataFetchingExample = () => {
 };
 
 export default DataFetchingExample
-`
+`;
 
 const SolidConceptsExamplesPage = () => {
-
-  return ( 
+  return (
     <>
-      <div class='grid grid-cols-2 section-min-height items-center'>
-        <div class="flex flex-col items-center space-y-4 mt-4">
+      <div class="section-min-height grid grid-cols-2 items-center">
+        <div class="mt-4 flex flex-col items-center space-y-4">
           <SimpleSignalsEaxmple />
           <BasicFormExample />
           <EventHandlersExample />
           <SimpleStoresExample />
         </div>
         <div>
-          <h2 class='text-4xl font-bold text-center'>Code for Data Fetching Example</h2>
-          <p class='text-xl font-semibold text-center'>(actual implementation in website located below this section)</p>
-          <CodeSnippet code={codeExample}/>
+          <h2 class="text-center text-4xl font-bold">
+            Code for Data Fetching Example
+          </h2>
+          <p class="text-center text-xl font-semibold">
+            (actual implementation in website located below this section)
+          </p>
+          <CodeSnippet code={codeExample} />
         </div>
       </div>
-      <div class='mt-4'>
-        <h1 class='text-center text-4xl mb-2 font-bold'>Data fetching posts from jsonPlaceholder.typicode.com </h1>
-        <DataFetchingExample /> 
+      <div class="mt-4">
+        <h1 class="mb-2 text-center text-4xl font-bold">
+          Data fetching posts from jsonPlaceholder.typicode.com{' '}
+        </h1>
+        <DataFetchingExample />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SolidConceptsExamplesPage
+export default SolidConceptsExamplesPage;

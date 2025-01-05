@@ -1,10 +1,10 @@
-import { createSignal } from "solid-js";
+import { createSignal } from 'solid-js';
 
 const BasicFormExample = () => {
-  const [name, setName] = createSignal("");
+  const [name, setName] = createSignal('');
 
   return (
-    <div class="flex flex-col border-2 p-2 w-[32rem]">
+    <div class="flex w-[32rem] flex-col border-2 p-2">
       <h1 class="text-4xl">Basic Form Example</h1>
       <form action="" class="flex flex-row">
         <label for="name">Your name: </label>
@@ -19,6 +19,6 @@ const BasicFormExample = () => {
       <p>Hello, {name()}!</p> {/* updates when name changes */}
     </div>
   );
-}
+};
 
-export default BasicFormExample
+export default BasicFormExample;

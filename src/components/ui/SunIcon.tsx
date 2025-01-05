@@ -1,6 +1,6 @@
 type SunIconProps = {
-  class?: string
-}
+  class?: string;
+};
 
 const SunIcon = (props: SunIconProps) => (
   <svg
@@ -9,7 +9,7 @@ const SunIcon = (props: SunIconProps) => (
     viewBox="0 0 24 24"
     stroke-width={1.5}
     stroke="currentColor"
-    class={props.class || "size-6"}
+    class={props.class || 'size-6'}
   >
     <path
       stroke-linecap="round"

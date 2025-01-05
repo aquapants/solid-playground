@@ -1,8 +1,6 @@
 //import { createEffect, createSignal } from "solid-js"
 //import { createStore } from "solid-js/store"
 
-const SimpleEffectsExample = () => {
-  
-}
+const SimpleEffectsExample = () => {};
 
-export default SimpleEffectsExample
+export default SimpleEffectsExample;

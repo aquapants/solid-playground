@@ -1,9 +1,9 @@
-import solidLogo from '@assets/solid.svg'
+import solidLogo from '@assets/solid.svg';
 
-import Card from '@components/Card'
-import Counter from "@components/Counter"
-import ColorChanger from "@components/ColorChanger"
-import { For } from 'solid-js'
+import Card from '@components/Card';
+import Counter from '@components/Counter';
+import ColorChanger from '@components/ColorChanger';
+import { For } from 'solid-js';
 
 const cards = [
   {
@@ -27,28 +27,28 @@ const cards = [
     flat: true,
     buttonTo: '/about',
   },
-]
+];
 
 const HomePage = () => {
-  return ( 
+  return (
     <div>
-      <div class="items-center justify-center flex flex-col section-min-height">
-        <div class='flex flex-row space-x-2'>
+      <div class="section-min-height flex flex-col items-center justify-center">
+        <div class="flex flex-row space-x-2">
           <h1 class="text-4xl font-bold">Solid Playground</h1>
-          <img src={solidLogo} alt="SolidJS Logo" class='h-10'/>
+          <img src={solidLogo} alt="SolidJS Logo" class="h-10" />
         </div>
         <Counter />
         <div class="mt-2">
           <ColorChanger />
         </div>
       </div>
-      <div class='grid grid-cols-4 gap-10 my py-2'> 
+      <div class="my grid grid-cols-4 gap-10 py-2">
         <Card // special home page card, button returns window to top of page
           title="Home Page"
           text="Displays a hero section with counter widget and color chnaging button. Below are these cards that reprent various pages and experiments available in this application"
           rounded={true}
           flat={false}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         />
         {/* loop over the array of cards to get the rest of the cards */}
         {/* instead of using JavaScript's map funciton, we can use SolidJS's For tag to loop over an array */}
@@ -63,11 +63,11 @@ const HomePage = () => {
             />
           )}
         </For>
-        <Card/>
-        <Card/>
+        <Card />
+        <Card />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

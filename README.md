@@ -1,6 +1,7 @@
 ## Usage
 
 To install dependencies:
+
 ```bash
 $ yarn
 ```

@@ -16,7 +16,7 @@ const EventHandlersExample = () => {
       <div class='my-auto text-2xl font-bold text bg-slate-400flex flex-col'>
         <p>The name is {name()} and the age is {age()}</p>
         <button class="border-white border"onClick={() => changeName('tails')}>Change the name</button>
-        <input class="bg-white" type="text" onInput={(e) => setName(e.target.value)} />
+        <input class="bg-white text-black" type="text" onInput={(e) => setName(e.target.value)} />
       </div>
     </div>
   )

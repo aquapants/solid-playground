@@ -16,7 +16,7 @@ const MainLayout = (props: ParentProps) => {
   return (
   <div>
     <div 
-      class="flex flex-row sticky top-0 border-b-zinc-800 border-b-[1px]"
+      class="flex flex-row sticky top-0 z-10 border-b-zinc-800 border-b-[1px]"
       classList={{"bg-zinc-200": darkTheme(), "text-black": darkTheme(), 
                   "bg-zinc-950": !darkTheme()}}  // styles depending on darkTheme() value
     >

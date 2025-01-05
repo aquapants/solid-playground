@@ -6,6 +6,7 @@ const fetchPost = async (id: string) => {
   return res.json()
 }
 
+// individual page for a single post, linked to by the button on post's card
 const PostPage = () => {
   const params = useParams()
   const [product] = createResource(params.id, fetchPost)

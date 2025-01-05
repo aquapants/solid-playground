@@ -1,5 +1,4 @@
 import { Router, Route } from "@solidjs/router";
-import './App.css'
 
 import MainLayout from "@layouts/MainLayout";
 import HomePage from "@pages/HomePage";
@@ -8,6 +7,7 @@ import PostPage from "@pages/PostPage";
 import MapPage from "@pages/MapPage"
 import AboutPage from "@pages/AboutPage";
 
+// App component reserverd for handling application's routing
 function App() {
 
   return (

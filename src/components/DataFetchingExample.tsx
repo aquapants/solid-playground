@@ -6,7 +6,6 @@ interface post {
   userId: number,
   title: string,
   body: string,
-
 }
 
 const fetchPosts = async () => {
@@ -19,6 +18,7 @@ const DataFetchingExample = () => {
 
   return (
     // solid's specialized Show element wrapper to conditionally render elements within it
+    // the fallback={} parameter will be loaded if the when={} paramater is not true
     <Show when={posts()} fallback={<p>loading...</p>}> 
       <div class="grid grid-cols-4 gap-5">
         <For each={posts()}>

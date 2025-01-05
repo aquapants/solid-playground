@@ -3,8 +3,9 @@ import solidLogo from '@assets/solid.svg'
 import Card from '@components/Card'
 import Counter from "@components/Counter"
 import ColorChanger from "@components/ColorChanger"
+import { For } from 'solid-js'
 
-const cardData = [
+const cards = [
   {
     title: 'SolidJS Concepts Examples',
     text: "This page is to showcase some very simple examples of signals in SolidJS If you're coming from a React background you can think of `createSignal` as `useState` in React",
@@ -32,8 +33,8 @@ const HomePage = () => {
   return ( 
     <div>
       <div class="items-center justify-center flex flex-col section-min-height">
-        <div class='flex flex-row'>
-          <h1 class="text-4xl">Solid Playground</h1>
+        <div class='flex flex-row space-x-2'>
+          <h1 class="text-4xl font-bold">Solid Playground</h1>
           <img src={solidLogo} alt="SolidJS Logo" class='h-10'/>
         </div>
         <Counter />
@@ -49,15 +50,18 @@ const HomePage = () => {
           flat={false}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         />
-        {cardData.map((card) => ( // rest of the cards mapped from cardData array defined above
-          <Card
-            title={card.title}
-            text={card.text}
-            rounded={card.rounded}
-            flat={card.flat}
-            buttonTo={card.buttonTo}
-          />
-        ))}
+        {/* instead of using JavaScript's map funciton, we can use SolidJS's For tag to loop over an array */}
+        <For each={cards}>
+          {(card) => (
+            <Card
+              title={card.title}
+              text={card.text}
+              rounded={card.rounded}
+              flat={card.flat}
+              buttonTo={card.buttonTo}
+            />
+          )}
+        </For>
         <Card/>
         <Card/>
       </div>

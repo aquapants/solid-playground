@@ -5,7 +5,7 @@ import Button from "@components/ui/Button";
 const ColorChanger = () => {
   const [bgColor, setBgColor] = createSignal("bg-blue-500 border-blue-700");
 
-  // Function to generate a random Tailwind background color class
+  // function to generate a random Tailwind background & border(shadow) color classes
   const getRandomColor = (currentColor: string) => {
     const colors = [
       "bg-red-500 border-red-700",

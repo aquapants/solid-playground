@@ -14,10 +14,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-  --navbar-height: 42px; /* navbar height definition ! must match height:nav in tailwind.config.js */
+  /* navbar height definition ! must match height:nav in tailwind.config.js */
+  --navbar-height: 42px; 
+
+  /* height definition of the screen minus the nav bar height (useful for heroSections, etc. */
+  /* this is just a css variable used in a calculation of a custom tailwind class, see .section-min-height */
   --min-height-w-nav: calc(
     100vh - var(--navbar-height)
-  ); /* section height definition when nav is on screen */
+  ); 
 }
 
 @layer base {
@@ -28,7 +32,8 @@
 }
 
 @layer utilities {
-  /* custom class for getting the full viewHeight-NavBarHeight*/
+  /* custom class for getting the screen-NavBarHeight (useful for heroSections, etc. */
+  /* can be applied with widescreen: & tallscreen: prefix to allow section to resize in tablet aspect ratios */
   .section-min-height {
     min-height: var(--min-height-w-nav);
   }

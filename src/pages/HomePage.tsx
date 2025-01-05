@@ -50,6 +50,7 @@ const HomePage = () => {
           flat={false}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         />
+        {/* loop over the array of cards to get the rest of the cards */}
         {/* instead of using JavaScript's map funciton, we can use SolidJS's For tag to loop over an array */}
         <For each={cards}>
           {(card) => (

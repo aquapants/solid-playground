@@ -1,6 +1,5 @@
 // a simple code snippet tokenizer and parser component for HTML, JavaScript & SolidJS code snippets passed as a string
-// cause fuck adding dependencies to your project at nauseam
-// also keeping in the spirit of solidJS as a lightweight framework
+// cause fuck adding dependencies to your project at nauseam // also keeping in the spirit of solidJS as a lightweight framework
 
 import { For } from "solid-js";
 

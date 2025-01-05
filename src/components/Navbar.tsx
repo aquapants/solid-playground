@@ -1,5 +1,6 @@
 import { A } from "@solidjs/router";
 
+// use the A tag provide by solid's router to ensure proper rendering of new pages rather than making HTTP requests
 const Navbar = () => (
   <nav class="flex flex-row items-center h-nav">
     <A href="/" class="mr-6">Home</A>

@@ -3,9 +3,12 @@ import BasicFormExample from '@components/BasicFormExample';
 import EventHandlersExample from '@components/EventHandlersExample';
 import SimpleStoresExample from '@components/SimpleStoresExample';
 import DataFetchingExample from '@components/DataFetchingExample';
+import SimpleEffectsExample from '@components/SimpleEffectsExample';
+import SimpleEffectsExample2 from '@components/SimpleEffectsExample2';
+
 import CodeSnippet from '@components/CodeSnippet';
 
-// TODO: move this content out of component and tutorialize the rest of the examples on individual pages
+// TODO: move this content out of page component and tutorialize the rest of the examples on individual pages
 const codeExample = `
 import { createResource, Show, For } from "solid-js";
 import Card from "./Card";
@@ -15,7 +18,6 @@ interface post {
   userId: number,
   title: string,
   body: string,
-
 }
 
 const fetchPosts = async () => {
@@ -59,6 +61,8 @@ const SolidConceptsExamplesPage = () => {
           <BasicFormExample />
           <EventHandlersExample />
           <SimpleStoresExample />
+          <SimpleEffectsExample />
+          <SimpleEffectsExample2 />
         </div>
         <div>
           <h2 class="text-center text-4xl font-bold">

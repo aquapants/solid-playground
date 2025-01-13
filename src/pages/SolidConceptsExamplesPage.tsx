@@ -5,6 +5,7 @@ import SimpleStoresExample from '@components/SimpleStoresExample';
 import DataFetchingExample from '@components/DataFetchingExample';
 import SimpleEffectsExample from '@components/SimpleEffectsExample';
 import SimpleEffectsExample2 from '@components/SimpleEffectsExample2';
+import ContextExample from '@components/ContextExample';
 
 import CodeSnippet from '@components/CodeSnippet';
 
@@ -63,6 +64,7 @@ const SolidConceptsExamplesPage = () => {
           <SimpleStoresExample />
           <SimpleEffectsExample />
           <SimpleEffectsExample2 />
+          <ContextExample />
         </div>
         <div>
           <h2 class="text-center text-4xl font-bold">

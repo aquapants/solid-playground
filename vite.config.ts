@@ -7,9 +7,11 @@ export default defineConfig({
     alias: {
       '@assets': '/src/assets',
       '@components': '/src/components',
+      '@context': '/src/context',
       '@layouts': '/src/layouts',
       '@pages': '/src/pages',
       '@utils': '/src/utils',
+      '@custom-types': '/src/types',
     },
   },
 });

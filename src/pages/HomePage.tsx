@@ -1,4 +1,4 @@
-import solidLogo from '@public/solid.svg';
+import solidLogo from '@assets/solid.svg';
 
 import Card from '@components/Card';
 import Counter from '@components/Counter';

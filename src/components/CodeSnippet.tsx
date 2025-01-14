@@ -4,15 +4,15 @@
 import { For } from 'solid-js';
 
 // patterns is the definition of possible tokens in CodeSnippets, this is extendable and customizable
-// make sure if you add a pattern here, you also add a corresponding switch case to the CodeSnippet Component
+// make sure if you add a pattern here, you also add a corresponding switch case to the CodeSnippet Component -
 // and provide a desired color class for your new pattern in the return state for the case
 const patterns: { [key: string]: RegExp } = {
   keyword:
-    /\b(const|let|function|return|if|else|for|while|class|new|import|export|default)\b/, // matches JavaScript keywords
+    /\b(const|let|function|return|if|else|for|while|class|new|import|export|default|async|interface)\b/, // matches JavaScript/Typescript keywords
   htmlTag:
     /\b(h[1-6]|div|span|p|a|ul|ol|li|table|thead|tbody|tr|td|th|img|button|input|form|label|textarea|select|option|section|article|header|footer|nav|main)\b/, // matches HTML tags
   solidComponent:
-    /\b(Show|For|ErrorBoundary|Suspense|Switch|Match|Portal|Dynamic)\b/, // matches SolidJS components
+    /\b(Show|For|ErrorBoundary|Suspense|Switch|Match|Portal|Dynamic)\b/, // matches SolidJS default elements
   string: /(['"`])(.*?)\1/,
   comment: /(\/\/.*)/,
   number: /\b\d+(\.\d+)?\b/,
@@ -28,21 +28,22 @@ const tokenizeCode = (code: string): { type: string; value: string }[] => {
   while (remainingCode) {
     let matched = false;
 
-    // if match, add the token to the dictionary with the appropriate type matched from patterns
     for (const [type, regex] of Object.entries(patterns)) {
-      const match = regex.exec(remainingCode);
+      // TODO: this could probably be optimized better. Current implementation might struggle with really large inputs
+      const match = regex.exec(remainingCode); // check each regex pattern against the remaining code
       if (match && match.index === 0) {
-        tokens.push({ type, value: match[0] });
-        remainingCode = remainingCode.slice(match[0].length);
+        // if there is a regex match at the very start (index 0) of the remaining code
+        tokens.push({ type, value: match[0] }); // push the matched pattern with its corresponding type to the tokens array
+        remainingCode = remainingCode.slice(match[0].length); // update to remaining code by slicing out the length of the matched pattern
         matched = true;
         break;
       }
     }
 
     if (!matched) {
-      // if no match, treat the next characters as plain text
-      tokens.push({ type: 'plain', value: remainingCode[0] });
-      remainingCode = remainingCode.slice(1);
+      // if no match is found at the very start of the remaining code
+      tokens.push({ type: 'plain', value: remainingCode[0] }); // push one character as plain text to the tokens array
+      remainingCode = remainingCode.slice(1); // update the remaining code by removing the pushed character
     }
   }
 
@@ -59,13 +60,13 @@ const CodeSnippet = (props: CodeSnippetProps) => {
   const getClassForType = (type: string) => {
     switch (type) {
       case 'keyword':
-        return 'text-blue-500 font-semibold'; // blue for JavaScript keywords
+        return 'text-purple-500 font-semibold'; // purple for JavaScript keywords
       case 'htmlTag':
         return 'text-red-400 font-medium'; // lighter red for HTML tags, goes with "operator" red
       case 'solidComponent':
         return 'text-cyan-400 font-bold'; // cyan for SolidJS components
       case 'string':
-        return 'text-green-500';
+        return 'text-green-400';
       case 'comment':
         return 'text-gray-500 italic';
       case 'number':
@@ -78,7 +79,7 @@ const CodeSnippet = (props: CodeSnippetProps) => {
   };
 
   return (
-    <pre class="overflow-x-auto rounded-lg border bg-gray-900 p-4 text-gray-100">
+    <pre class="overflow-x-auto rounded-lg border bg-gray-800 p-4 text-gray-100">
       <code>
         <For each={tokens}>
           {(token) => (

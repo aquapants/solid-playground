@@ -15,7 +15,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* navbar height definition ! must match height:nav in tailwind.config.js */
-  --navbar-height: 42px;
+  --navbar-height: 56px;
 
   /* height definition of the screen minus the nav bar height (useful for heroSections, etc. */
   /* this is just a css variable used in a calculation of a custom tailwind class, see .section-min-height */
@@ -26,6 +26,12 @@
   /* default generic non 3D button style applied across entire project */
   button {
     @apply rounded bg-blue-500 px-4 py-2 text-base font-bold text-white;
+  }
+  a {
+    @apply relative rounded border-b-4 border-gray-700 bg-gray-500 px-4 py-1 text-white shadow transition-all duration-100 ease-in-out active:translate-y-0.5 active:border-b-transparent;
+  }
+  a:active {
+    @apply translate-y-0.5 border-b-transparent;
   }
 }
 

@@ -77,7 +77,7 @@ const SolidConceptsExamplesPage = () => {
         </div>
       </div>
       <div class="mt-4">
-        <h1 class="mb-2 text-center text-4xl font-bold">
+        <h1 class="mb-4 text-center text-4xl font-bold">
           Data fetching posts from jsonPlaceholder.typicode.com{' '}
         </h1>
         <DataFetchingExample />

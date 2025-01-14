@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       height: {
-        nav: '42px', // custom nav-height, use:`className="h-nav"` in navBar component // ! must match --navbar-height in index.css
+        nav: '56px', // custom nav-height, use:`className="h-nav"` in navBar component // ! must match --navbar-height in index.css
       },
       screens: {
         widescreen: { raw: '(min-aspect-ratio: 1/1)' }, // Widescreen monitors

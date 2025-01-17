@@ -1,5 +1,7 @@
 import { createEffect, createSignal } from 'solid-js';
 
+import SimpleCard from '@components/SimpleCard';
+
 const SimpleEffectsExample = () => {
   const [count, setCount] = createSignal(0);
 
@@ -18,11 +20,11 @@ const SimpleEffectsExample = () => {
   const int = setInterval(() => setCount(count() + 1), 1000);
 
   return (
-    <div class="flex w-[32rem] flex-col border-2 p-2">
+    <SimpleCard>
       <h1 class="text-4xl">Simple Effects</h1>
       <p>The count is {count()}</p>
       <p>My name is static sanderson</p>
-    </div>
+    </SimpleCard>
   );
 };
 

@@ -1,5 +1,7 @@
 import { createSignal } from 'solid-js';
 
+import SimpleCard from '@components/SimpleCard';
+
 const SimpleSignalsExample = () => {
   const [name, setName] = createSignal('knuckles');
   const [bool, setBool] = createSignal(false);
@@ -50,7 +52,7 @@ const SimpleSignalsExample = () => {
   // INCORRECT  <p> The name is: {name} </p> this is how its done in React but does not work in SolidJS.
   // read more about SolidJS's reactivity model to understand the benefits (and potential risks) of this difference
   return (
-    <div class="flex w-[32rem] flex-col border-2 p-2">
+    <SimpleCard>
       <h1 class="text-4xl">Simple Signals</h1>
       <p>
         This component is to showcase some very simple examples of signals in
@@ -69,7 +71,7 @@ const SimpleSignalsExample = () => {
           The person is {person().name.first} {person().name.last}
         </p>
       </div>
-    </div>
+    </SimpleCard>
   );
 };
 

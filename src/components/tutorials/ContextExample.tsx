@@ -1,5 +1,6 @@
 import { For } from 'solid-js';
-import Cart from '@components/Cart';
+
+import SimpleCard from '@components/SimpleCard';
 import { useCartContext } from '@context/CartContext';
 import { CartItem } from '@custom-types/types';
 
@@ -12,18 +13,16 @@ const ContextExample = () => {
   const { items } = context;
 
   return (
-    <div class="flex w-[32rem] flex-col border-2 p-2">
-      <Cart>
-        <h2 class="text-4xl">Your shopping Cart</h2>
-        <For each={items}>
-          {(item: CartItem) => (
-            <p class="my-3">
-              {item.title} - ${item.price} x {item.quantity}
-            </p>
-          )}
-        </For>
-      </Cart>
-    </div>
+    <SimpleCard>
+      <h2 class="text-4xl">Your shopping Cart</h2>
+      <For each={items}>
+        {(item: CartItem) => (
+          <p class="my-3">
+            {item.title} - ${item.price} x {item.quantity}
+          </p>
+        )}
+      </For>
+    </SimpleCard>
   );
 };
 

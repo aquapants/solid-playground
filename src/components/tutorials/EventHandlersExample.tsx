@@ -1,5 +1,7 @@
 import { createSignal } from 'solid-js';
 
+import SimpleCard from '@components/SimpleCard';
+
 const EventHandlersExample = () => {
   const [name, setName] = createSignal('knuckles');
   const [age, setAge] = createSignal(25);
@@ -16,7 +18,7 @@ const EventHandlersExample = () => {
   };
 
   return (
-    <div class="flex w-[32rem] flex-col border-2 p-2">
+    <SimpleCard>
       <h1 class="text-4xl">Event Handlers</h1>
       <p>
         This component is to showcase simple examples of handling events in
@@ -26,7 +28,7 @@ const EventHandlersExample = () => {
         <p>
           The name is {name()} and the age is {age()}
         </p>
-        <button class="border border-white" onClick={() => changeName('tails')}>
+        <button onClick={() => changeName('tails')}>
           Change the name to tails
         </button>
         <div>
@@ -41,7 +43,7 @@ const EventHandlersExample = () => {
         </div>
         <button onClick={increaseAge}>increase age</button>
       </div>
-    </div>
+    </SimpleCard>
   );
 };
 

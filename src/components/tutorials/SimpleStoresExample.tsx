@@ -1,6 +1,8 @@
 import { For } from 'solid-js';
 import { createStore } from 'solid-js/store';
 
+import SimpleCard from '@components/SimpleCard';
+
 const SimpleStoresExample = () => {
   // stores are helpful and can be more optimized for arrays and nested object objects
   // because in a store each object or array element gets its own signal so its easier to mutate individual values
@@ -58,7 +60,7 @@ const SimpleStoresExample = () => {
   };
 
   return (
-    <div class="flex w-[32rem] flex-col space-y-2 border-2 p-2">
+    <SimpleCard>
       <h1 class="text-4xl">Simple Stores</h1>
       <p>The first name is {person.name.first}</p>
       <p>The last name is {person.name.last}</p>
@@ -70,16 +72,18 @@ const SimpleStoresExample = () => {
 
       <For each={posts}>
         {(post) => (
-          <div class="my-1 border px-1">
+          <div class="my-1 rounded-md border px-2 py-1">
             <h2 class="text-xl font-bold">{post.title}</h2>
             <p>{post.body}</p>
           </div>
         )}
       </For>
 
-      <button onClick={changePost}>change title on post 1</button>
-      <button onClick={() => chnagePost2(2)}>change title on post 2</button>
-    </div>
+      <div class="flex flex-row justify-center space-x-2">
+        <button onClick={changePost}>change title on post 1</button>
+        <button onClick={() => chnagePost2(2)}>change title on post 2</button>
+      </div>
+    </SimpleCard>
   );
 };
 

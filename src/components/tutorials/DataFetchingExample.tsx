@@ -1,5 +1,6 @@
 import { createResource, Show, For } from 'solid-js';
-import Card from '../Card';
+
+import Card from '@components/Card';
 
 interface post {
   id: number;
@@ -20,7 +21,8 @@ const DataFetchingExample = () => {
     // solid's specialized Show element wrapper to conditionally render elements within it
     // the fallback={} parameter will be loaded if the when={} paramater is not true
     <Show when={posts()} fallback={<p>loading...</p>}>
-      <div class="grid grid-cols-4 gap-5">
+      {/* responsive grid styling  */}
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         <For each={posts()}>
           {(post: post) => (
             <Card

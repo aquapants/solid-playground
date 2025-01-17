@@ -6,8 +6,8 @@ const Navbar = () => (
     <A href="/" class="mr-6">
       Home
     </A>
-    <A href="/solid-concepts-examples" class="mr-6">
-      Solid Concepts Exmaples
+    <A href="/tutorial" class="mr-6">
+      Tutorial
     </A>
     <A href="/map" class="mr-6">
       Map

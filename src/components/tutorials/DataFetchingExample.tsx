@@ -1,5 +1,5 @@
 import { createResource, Show, For } from 'solid-js';
-import Card from './Card';
+import Card from '../Card';
 
 interface post {
   id: number;

@@ -2,7 +2,7 @@ import { Router, Route } from '@solidjs/router';
 
 import MainLayout from '@layouts/MainLayout';
 import HomePage from '@pages/HomePage';
-import SolidConceptsExamplesPage from '@pages/SolidConceptsExamplesPage';
+import TutorialsPage from '@pages/TutorialPage';
 import PostPage from '@pages/PostPage';
 import MapPage from '@pages/MapPage';
 import AboutPage from '@pages/AboutPage';
@@ -14,10 +14,7 @@ function App() {
       <Router>
         <Route path="/" component={MainLayout}>
           <Route path="/" component={HomePage} />
-          <Route
-            path="/solid-concepts-examples"
-            component={SolidConceptsExamplesPage}
-          />
+          <Route path="/tutorial" component={TutorialsPage} />
           <Route path="/post/:id" component={PostPage} />
           <Route path="/map" component={MapPage} />
           <Route path="/about" component={AboutPage} />

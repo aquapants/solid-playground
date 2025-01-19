@@ -13,10 +13,7 @@ export const CartContext = createContext<CartContextType>({
 });
 
 export const CartContextProvider = (props: ParentProps) => {
-  const [items, setItems] = createStore<CartItem[]>([
-    { id: 100, title: 'test product', quantity: 2, price: 15 },
-    { id: 101, title: 'test product 2', quantity: 1, price: 20 },
-  ]);
+  const [items, setItems] = createStore<CartItem[]>([]);
 
   return (
     <CartContext.Provider value={{ items, setItems }}>

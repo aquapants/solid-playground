@@ -1,104 +1,167 @@
-import { createSignal, For, lazy } from 'solid-js';
-
+import { createMemo, createSignal, For, lazy, Suspense } from 'solid-js';
 import Button from '@components/ui/Button';
 import CodeSnippet from '@components/CodeSnippet';
 
+type RawModule = { default: string };
+
+type Tutorial = {
+  id: string;
+  label: string;
+  Component: ReturnType<typeof lazy>;
+  loadCode: () => Promise<string>;
+};
+
+const tutorials: Tutorial[] = [
+  {
+    id: 'simpleSignalsExample',
+    label: 'Simple Signals Example',
+    Component: lazy(() => import('@components/tutorials/SimpleSignalsExample')),
+    loadCode: async () => {
+      const mod = (await import(
+        '@components/tutorials/SimpleSignalsExample.tsx?raw'
+      )) as RawModule;
+      return mod.default;
+    },
+  },
+  {
+    id: 'basicFormExample',
+    label: 'Basic Form Example',
+    Component: lazy(() => import('@components/tutorials/BasicFormExample')),
+    loadCode: async () => {
+      const mod = (await import(
+        '@components/tutorials/BasicFormExample.tsx?raw'
+      )) as RawModule;
+      return mod.default;
+    },
+  },
+  {
+    id: 'eventHandlersExample',
+    label: 'Event Handlers Example',
+    Component: lazy(() => import('@components/tutorials/EventHandlersExample')),
+    loadCode: async () => {
+      const mod = (await import(
+        '@components/tutorials/EventHandlersExample.tsx?raw'
+      )) as RawModule;
+      return mod.default;
+    },
+  },
+  {
+    id: 'simpleStoresExample',
+    label: 'Simple Stores Example',
+    Component: lazy(() => import('@components/tutorials/SimpleStoresExample')),
+    loadCode: async () => {
+      const mod = (await import(
+        '@components/tutorials/SimpleStoresExample.tsx?raw'
+      )) as RawModule;
+      return mod.default;
+    },
+  },
+  {
+    id: 'simpleEffectsExample',
+    label: 'Simple Effects Example',
+    Component: lazy(() => import('@components/tutorials/SimpleEffectsExample')),
+    loadCode: async () => {
+      const mod = (await import(
+        '@components/tutorials/SimpleEffectsExample.tsx?raw'
+      )) as RawModule;
+      return mod.default;
+    },
+  },
+  {
+    id: 'simpleEffectsExample2',
+    label: 'Simple Effects Example 2',
+    Component: lazy(
+      () => import('@components/tutorials/SimpleEffectsExample2'),
+    ),
+    loadCode: async () => {
+      const mod = (await import(
+        '@components/tutorials/SimpleEffectsExample2.tsx?raw'
+      )) as RawModule;
+      return mod.default;
+    },
+  },
+  {
+    id: 'contextExample',
+    label: 'Context Example',
+    Component: lazy(() => import('@components/tutorials/ContextExample')),
+    loadCode: async () => {
+      const mod = (await import(
+        '@components/tutorials/ContextExample.tsx?raw'
+      )) as RawModule;
+      return mod.default;
+    },
+  },
+  {
+    id: 'dataFetchingExample',
+    label: 'Data Fetching Example',
+    Component: lazy(() => import('@components/tutorials/DataFetchingExample')),
+    loadCode: async () => {
+      const mod = (await import(
+        '@components/tutorials/DataFetchingExample.tsx?raw'
+      )) as RawModule;
+      return mod.default;
+    },
+  },
+];
+
 const SolidConceptsExamplesPage = () => {
-  const [currentPage, setCurrentPage] = createSignal('');
+  const [currentId, setCurrentId] = createSignal<string | null>(null);
+  const [code, setCode] = createSignal<string>('');
 
-  // lazy load components so that reactive events only start when user selects the tutorial
-  const tutorials = [
-    {
-      id: 'simpleSignalsExample',
-      label: 'Simple Signals Example',
-      component: lazy(
-        () => import('@components/tutorials/SimpleSignalsExample'),
-      ),
-    },
-    {
-      id: 'basicFormExample',
-      label: 'Basic Form Example',
-      component: lazy(() => import('@components/tutorials/BasicFormExample')),
-    },
-    {
-      id: 'eventHandlersExample',
-      label: 'Event Handlers Example',
-      component: lazy(
-        () => import('@components/tutorials/EventHandlersExample'),
-      ),
-    },
-    {
-      id: 'simpleStoresExample',
-      label: 'Simple Stores Example',
-      component: lazy(
-        () => import('@components/tutorials/SimpleStoresExample'),
-      ),
-    },
-    {
-      id: 'simpleEffectsExample',
-      label: 'Simple Effects Example',
-      component: lazy(
-        () => import('@components/tutorials/SimpleEffectsExample'),
-      ),
-    },
-    {
-      id: 'simpleEffectsExample2',
-      label: 'Simple Effects Example 2',
-      component: lazy(
-        () => import('@components/tutorials/SimpleEffectsExample2'),
-      ),
-    },
-    {
-      id: 'contextExample',
-      label: 'Context Example',
-      component: lazy(() => import('@components/tutorials/ContextExample')),
-    },
-    {
-      id: 'dataFetchingExample',
-      label: 'Data Fetching Example',
-      component: lazy(
-        () => import('@components/tutorials/DataFetchingExample'),
-      ),
-    },
-  ];
+  const selected = createMemo(
+    () => tutorials.find((t) => t.id === currentId()) ?? null,
+  );
 
-  const renderComponent = () => {
-    const selectedTutorial = tutorials.find(
-      (tutorial) => tutorial.id === currentPage(),
-    );
-    if (selectedTutorial?.component) {
-      const Component = selectedTutorial.component; // call lazy-loaded component
-      return <Component />; // must be returned as TSX element
+  const loadTutorial = async (t: Tutorial) => {
+    setCurrentId(t.id);
+    setCode(''); // clear while loading
+
+    try {
+      const source = await t.loadCode();
+      setCode(source);
+      console.log(source);
+    } catch (err) {
+      console.error('Failed to load code:', err);
+      setCode('// Failed to load code');
     }
-    return <div class="text-4xl font-bold">Select a Tutorial</div>;
   };
 
   return (
-    <>
-      {/* button selector for tutorial */}
-      <div class="">
-        <div class="mx-auto mt-4 grid grid-cols-2 gap-4">
-          <For each={tutorials}>
-            {(tutorial) => (
-              <Button
-                extraClasses="mx-auto w-64"
-                onClick={() => setCurrentPage(tutorial.id)}
-              >
-                {tutorial.label}
-              </Button>
-            )}
-          </For>
+    <div class="mx-auto mt-4">
+      <div class="grid grid-cols-2 gap-4">
+        <For each={tutorials}>
+          {(t) => (
+            <Button
+              extraClasses="mx-auto w-64"
+              onClick={() => void loadTutorial(t)}
+            >
+              {t.label}
+            </Button>
+          )}
+        </For>
+      </div>
+
+      <div class="mx-auto mb-4 mt-8 flex w-max flex-row gap-6">
+        <div class="min-w-[480px]">
+          <Suspense fallback={<div>Loading tutorial…</div>}>
+            {(() => {
+              const tutorial = selected();
+              if (!tutorial) return <div>Select a Tutorial</div>;
+
+              const Component = tutorial.Component;
+              return <Component />;
+            })()}
+          </Suspense>
         </div>
 
-        {/* tutorial section */}
-        <div class="mx-auto mt-8 flex w-max flex-row">
-          <div>{renderComponent()}</div>
-          <div>
-            <CodeSnippet code="{var hello world}" />
-          </div>
+        <div class="min-w-[480px]">
+          <CodeSnippet
+            code={code() || '// select a tutorial to view its code'}
+            //code={code()}
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

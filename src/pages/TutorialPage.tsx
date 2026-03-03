@@ -1,6 +1,7 @@
 import { createSignal, For, lazy } from 'solid-js';
 
 import Button from '@components/ui/Button';
+import CodeSnippet from '@components/CodeSnippet';
 
 const SolidConceptsExamplesPage = () => {
   const [currentPage, setCurrentPage] = createSignal('');
@@ -74,6 +75,7 @@ const SolidConceptsExamplesPage = () => {
 
   return (
     <>
+      {/* button selector for tutorial */}
       <div class="">
         <div class="mx-auto mt-4 grid grid-cols-2 gap-4">
           <For each={tutorials}>
@@ -89,7 +91,12 @@ const SolidConceptsExamplesPage = () => {
         </div>
 
         {/* tutorial section */}
-        <div class="mx-auto mt-8 w-max">{renderComponent()}</div>
+        <div class="mx-auto mt-8 flex w-max flex-row">
+          <div>{renderComponent()}</div>
+          <div>
+            <CodeSnippet code="{var hello world}" />
+          </div>
+        </div>
       </div>
     </>
   );

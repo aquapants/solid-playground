@@ -1,6 +1,8 @@
 import { createEffect } from 'solid-js';
 import { createStore } from 'solid-js/store';
 
+import SimpleCard from '@components/SimpleCard';
+
 const SimpleEffectsExample2 = () => {
   const [person, setPerson] = createStore({
     name: {
@@ -24,13 +26,13 @@ const SimpleEffectsExample2 = () => {
   });
 
   return (
-    <div class="flex w-[32rem] flex-col border-2 p-2">
+    <SimpleCard>
       <h1 class="text-4xl">Simple Effects 2</h1>
       <p>
         My name is {person.name.first} {person.name.last}
       </p>
       <button onClick={changeName}>update the name</button>
-    </div>
+    </SimpleCard>
   );
 };
 

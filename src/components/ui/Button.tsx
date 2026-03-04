@@ -23,7 +23,7 @@ const Button = (props: ButtonProps) => {
   // handleClick function determines whether a route and/or a custom onClick function was passed to the button
   const handleClick = () => {
     if (local.to) {
-      navigate(local.to); // navigate to the provided route
+      navigate(local.to); // navigate to the provided route // this will always execute first
     }
     if (local.onClick) {
       local.onClick(); // call the provided custom onClick handler
@@ -32,7 +32,7 @@ const Button = (props: ButtonProps) => {
 
   return (
     <button
-      class={`active relative rounded border-b-4 px-4 py-2 text-white shadow transition-all duration-100 ease-in-out active:translate-y-0.5 active:border-b-transparent ${local.color || 'border-red-700 bg-red-500'} ${local.extraClasses || ''}`}
+      class={`active relative rounded border-b-4 px-4 py-2 text-white shadow transition-all duration-100 ease-in-out active:translate-y-0.5 active:border-b-transparent ${local.color || 'border-blue-700 bg-blue-500'} ${local.extraClasses || ''}`}
       onClick={handleClick}
       {...others}
     >

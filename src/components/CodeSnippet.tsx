@@ -1,7 +1,7 @@
 // a simple code snippet tokenizer and parser component for HTML, JavaScript & SolidJS code snippets passed as a string
 // cause fuck adding dependencies to your project at nauseam // also keeping in the spirit of solidJS as a lightweight framework
 
-import { For } from 'solid-js';
+import { createMemo, For } from 'solid-js';
 
 // patterns is the definition of possible tokens in CodeSnippets, this is extendable and customizable
 // make sure if you add a pattern here, you also add a corresponding switch case to the CodeSnippet Component -
@@ -55,16 +55,16 @@ interface CodeSnippetProps {
 }
 
 const CodeSnippet = (props: CodeSnippetProps) => {
-  const tokens = tokenizeCode(props.code);
+  const tokens = createMemo(() => tokenizeCode(props.code));
 
   const getClassForType = (type: string) => {
     switch (type) {
       case 'keyword':
-        return 'text-purple-500 font-semibold'; // purple for JavaScript keywords
+        return 'text-purple-500 font-semibold';
       case 'htmlTag':
-        return 'text-red-400 font-medium'; // lighter red for HTML tags, goes with "operator" red
+        return 'text-red-400 font-medium';
       case 'solidComponent':
-        return 'text-cyan-400 font-bold'; // cyan for SolidJS components
+        return 'text-cyan-400 font-bold';
       case 'string':
         return 'text-green-400';
       case 'comment':
@@ -81,7 +81,7 @@ const CodeSnippet = (props: CodeSnippetProps) => {
   return (
     <pre class="overflow-x-auto rounded-lg border bg-gray-800 p-4 text-gray-100">
       <code>
-        <For each={tokens}>
+        <For each={tokens()}>
           {(token) => (
             <span class={getClassForType(token.type)}>{token.value}</span>
           )}

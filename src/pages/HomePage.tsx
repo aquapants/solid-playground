@@ -7,11 +7,11 @@ import { For } from 'solid-js';
 
 const cards = [
   {
-    title: 'SolidJS Concepts Examples',
-    text: "This page is to showcase some very simple examples of signals in SolidJS If you're coming from a React background you can think of `createSignal` as `useState` in React",
+    title: 'Solid JS Tutorials',
+    text: 'This page is to showcase some simple examples of common Frontend patterns in SolidJS',
     rounded: true,
     flat: false,
-    buttonTo: '/solid-concepts-examples',
+    buttonTo: '/tutorial',
   },
   {
     title: 'Map Page',

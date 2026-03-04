@@ -3,6 +3,9 @@ export default {
   content: ['./index.html', './src/**/*.{css,js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        arcade: ['"Press Start 2P"', 'monospace'],
+      },
       height: {
         nav: '56px', // custom nav-height, use:`className="h-nav"` in navBar component // ! must match --navbar-height in index.css
       },

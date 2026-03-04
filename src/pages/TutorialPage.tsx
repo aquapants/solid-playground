@@ -128,7 +128,7 @@ const SolidConceptsExamplesPage = () => {
   };
 
   return (
-    <div class="mx-auto mt-2">
+    <div class="mx-auto mt-2 w-full max-w-[1600px] px-6">
       <div class="flex items-center justify-between px-4 text-sm text-zinc-400">
         <A href="/" class="transition-colors hover:text-white">
           ← Back Home

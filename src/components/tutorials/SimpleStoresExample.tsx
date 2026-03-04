@@ -40,10 +40,11 @@ const SimpleStoresExample = () => {
 
   // update name of post 1
   const changePost = () => {
-    setPosts(0, 'title', 'cooler name for post 1'); // pass array index, then property you want to change, then the new value
+    setPosts(0, 'title', 'cooler name for post 1'); // pass array index, property to change, the new value
     // 0 is the index of post 1
     // "title" is the name of the property of i want to change in that item
-    // "cooler name for post 1" is a new title for the post, when this function is called the name of the post will be updated to this value
+    // "cooler name for post 1" is a new title for the post
+    // when this function is called the name of the post will be updated to this value
   };
 
   // you can also pass a function to deremine what postion or property we want to update
@@ -54,7 +55,8 @@ const SimpleStoresExample = () => {
     // here we first pass a function where the argument p represents each post in the `posts` Store created above
     // if a post's id matches the number that was passed to this changePost2 function
     // then the value will be updated to whatever is provided (in the 3rd argument)
-    // after passing the function as the 1st argument, pass the property you want to change as the 2nd, then the new value as the 3rd
+    // after passing the function as the 1st argument
+    // pass the property you want to change as the 2nd, then the new value as the 3rd
     setPosts((p) => p.id === id, 'title', 'functional name for post 2');
     // TODO: experiment with passing a function as the second argument for a store as well
   };

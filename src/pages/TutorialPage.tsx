@@ -1,4 +1,5 @@
 import { createMemo, createSignal, For, lazy, Suspense } from 'solid-js';
+import { A } from '@solidjs/router';
 import Button from '@components/ui/Button';
 import CodeSnippet from '@components/CodeSnippet';
 
@@ -127,7 +128,12 @@ const SolidConceptsExamplesPage = () => {
   };
 
   return (
-    <div class="mx-auto mt-4">
+    <div class="mx-auto mt-2">
+      <div class="flex items-center justify-between px-4 text-sm text-zinc-400">
+        <A href="/" class="transition-colors hover:text-white">
+          ← Back Home
+        </A>
+      </div>
       <div class="grid grid-cols-2 gap-4">
         <For each={tutorials}>
           {(t) => (
@@ -146,7 +152,12 @@ const SolidConceptsExamplesPage = () => {
           <Suspense fallback={<div>Loading tutorial…</div>}>
             {(() => {
               const tutorial = selected();
-              if (!tutorial) return <div>Select a Tutorial</div>;
+              if (!tutorial)
+                return (
+                  <div class="text-center font-bold text-white">
+                    Select a Snippet
+                  </div>
+                );
 
               const Component = tutorial.Component;
               return <Component />;
@@ -157,7 +168,6 @@ const SolidConceptsExamplesPage = () => {
         <div class="min-w-[480px]">
           <CodeSnippet
             code={code() || '// select a tutorial to view its code'}
-            //code={code()}
           />
         </div>
       </div>

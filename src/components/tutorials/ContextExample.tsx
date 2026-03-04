@@ -39,11 +39,9 @@ const ContextExample = () => {
   ];
 
   return (
-    <div class="flex flex-row items-start space-x-2">
-      <Cart />
-
+    <div class="flex flex-col">
       {/* product section - loop through dummy products  */}
-      <div>
+      <div class="space-y-2">
         <For each={products}>
           {(product) => (
             <SimpleCard>
@@ -53,6 +51,9 @@ const ContextExample = () => {
             </SimpleCard>
           )}
         </For>
+      </div>
+      <div class="mt-6">
+        <Cart />
       </div>
     </div>
   );

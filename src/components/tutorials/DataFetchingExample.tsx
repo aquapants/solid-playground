@@ -22,7 +22,7 @@ const DataFetchingExample = () => {
     // the fallback={} parameter will be loaded if the when={} paramater is not true
     <Show when={posts()} fallback={<p>loading...</p>}>
       {/* responsive grid styling  */}
-      <div class="mx-auto grid w-max grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div class="mx-auto grid w-max grid-cols-1 gap-5 md:grid-cols-2">
         <For each={posts()}>
           {(post: post) => (
             <Card

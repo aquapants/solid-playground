@@ -32,7 +32,7 @@ const Button = (props: ButtonProps) => {
 
   return (
     <button
-      class={`active relative rounded border-b-4 px-4 py-2 text-white shadow transition-all duration-100 ease-in-out active:translate-y-0.5 active:border-b-transparent ${local.color || 'border-red-700 bg-red-500'} ${local.extraClasses || ''}`}
+      class={`active relative rounded border-b-4 px-4 py-2 text-white shadow transition-all duration-100 ease-in-out active:translate-y-0.5 active:border-b-transparent ${local.color || 'border-blue-700 bg-blue-500'} ${local.extraClasses || ''}`}
       onClick={handleClick}
       {...others}
     >

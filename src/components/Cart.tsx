@@ -21,7 +21,7 @@ const Cart = () => {
         )}
       </For>
       <button
-        class="mt-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+        class="mt-4 rounded bg-blue-500 text-white hover:bg-blue-600"
         onClick={() => alert('Checkout process coming soon!')}
       >
         Checkout

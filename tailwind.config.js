@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         arcade: ['"Press Start 2P"', 'monospace'],
+        tech: ['"Space Mono"', 'monospace'],
       },
       height: {
         nav: '56px', // custom nav-height, use:`className="h-nav"` in navBar component // ! must match --navbar-height in index.css

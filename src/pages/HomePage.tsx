@@ -5,6 +5,7 @@ import Counter from '@components/Counter';
 import ColorChanger from '@components/ColorChanger';
 import { For } from 'solid-js';
 
+// array of card data, can be looped over with a component
 const cards = [
   {
     title: 'Solid JS Tutorials',
@@ -33,7 +34,7 @@ const HomePage = () => {
   return (
     <div>
       <div class="section-min-height flex flex-col items-center justify-center">
-        <div class="flex flex-row space-x-2">
+        <div class="my-4 flex flex-row space-x-2">
           <h1 class="text-4xl font-bold">Solid Playground</h1>
           <img src={solidLogo} alt="SolidJS Logo" class="h-10" />
         </div>

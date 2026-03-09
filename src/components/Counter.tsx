@@ -37,7 +37,8 @@ const Counter = () => {
    * Multiplier decays as moves increase.
    * - Starts at 1.0
    * - Drops by 3% per move
-   * - floor at .10 so the game never becomes "worthless"
+   * - floor at .10
+   * - 0.1-1.5 multiplier bonus for every prime
    */
   const multiplier = createMemo(() => {
     const decay = Math.max(0.1, 1 - moves() * 0.03);
@@ -157,9 +158,9 @@ const Counter = () => {
       <div class="mx-auto mt-4 flex w-fit items-center justify-center gap-2">
         <Button onClick={() => doMove((c) => c + 1)}>add 1</Button>
 
-        <Button onClick={() => doMove((c) => c - 7)}>minus 7</Button>
+        <Button onClick={() => doMove((c) => c - 1)}>minus 1</Button>
 
-        <Button onClick={() => doMove((c) => c * 3)}>times 3</Button>
+        <Button onClick={() => doMove((c) => c * 2)}>times 2</Button>
 
         <Button onClick={() => doMove((c) => Math.trunc(c / 2))}>
           divide 2

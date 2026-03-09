@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -43,4 +43,22 @@
   .section-min-height {
     min-height: var(--min-height-w-nav);
   }
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.15;
+  }
+}
+.blink {
+  animation: blink 1.5s steps(1, end) infinite;
+}
+
+body {
+  font-family: 'Share Mono', monospace;
 }
